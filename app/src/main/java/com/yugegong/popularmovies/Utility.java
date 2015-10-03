@@ -37,7 +37,7 @@ public class Utility {
                 context.getString(R.string.pref_sort_by_default));
     }
 
-    public static int getScreenWidth(Activity activity){
+    public static int getGridViewWidth(Activity activity){
         int screenWidth = 0;
         // get the screen width in pixels
         DisplayMetrics dm = new DisplayMetrics();
@@ -46,8 +46,8 @@ public class Utility {
         // convert the screen width from pi to dp. If screenwidth >= 600dp, means we are going to
         // use two pane mode for tablet. Divide the screenwidth by 2 to calculate the column width
         // of the grid view, which is also the imageview width.
-        if (screenWidth*160/dm.densityDpi >= 600) screenWidth /= 2;
-        //        Log.v(LOG_TAG, "dp2: " + screenWidth * 160 / dm.densityDpi + " " + screenWidth + " " + dm.densityDpi);
+        if (screenWidth*160/dm.densityDpi > 600) screenWidth /= 2;
+//        Log.v(LOG_TAG, "dp2: " + screenWidth * 160 / dm.densityDpi + " " + screenWidth + " " + dm.densityDpi);
         return screenWidth;
     }
 

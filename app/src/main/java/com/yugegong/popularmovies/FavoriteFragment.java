@@ -71,7 +71,7 @@ public class FavoriteFragment extends Fragment implements LoaderManager.LoaderCa
         Log.v(LOG_TAG, "onCreateView");
 
         // get the screen width
-        sScreenWidth = Utility.getScreenWidth(getActivity());
+        sScreenWidth = Utility.getGridViewWidth(getActivity());
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, rootView);
