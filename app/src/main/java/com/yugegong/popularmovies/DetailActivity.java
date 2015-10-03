@@ -1,5 +1,6 @@
 package com.yugegong.popularmovies;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -11,8 +12,23 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         if (savedInstanceState == null) {
+            Bundle args = new Bundle();
+            Intent intent = getIntent();
+            if (intent.hasExtra(RegularFragment.SELECTED_KEY)) {
+                args.putInt(DetailFragment.DETAIL_POSITION,
+                        intent.getIntExtra(RegularFragment.SELECTED_KEY, -1));
+            } else if (intent.hasExtra(FavoriteFragment.SELECTED_MOVIE)
+                    && intent.hasExtra(FavoriteFragment.SELECTED_ID)) {
+                args.putLong(DetailFragment.DETAIL_ID,
+                        intent.getLongExtra(FavoriteFragment.SELECTED_ID, -1L));
+                args.putParcelable(DetailFragment.DETAIL_MOVIE,
+                        intent.getParcelableExtra(FavoriteFragment.SELECTED_MOVIE));
+            }
+
+            DetailFragment df = new DetailFragment();
+            df.setArguments(args);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new DetailActivityFragment())
+                    .add(R.id.movie_detail_container, df)
                     .commit();
         }
     }

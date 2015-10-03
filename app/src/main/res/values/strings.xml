@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Popular Movies</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_detail">Details</string>
     <string name="title_activity_settings">Settings</string>
@@ -9,6 +8,26 @@
     <string name="pref_sort_by_title">Sort by</string>
     <string name="pref_sort_by_default" translatable="false">popularity.desc</string>
 
-    <string name="trailer_title">Trailers:</string>
+    <string name="trailer_title">Trailers</string>
+    <string name="no_video">Sorry, there is no trailer for this movie.</string>
+
+    <string name="review_title">Reviews</string>
+    <string name="no_reivew">Sorry, there is no review for this movie.</string>
+
+
+    <string name="content_authority" translatable="false">com.yugegong.popularmovies</string>
+
+    <string name="mart_favorite">Mark as\nfavorite</string>
+    <string name="sort_by_favorite" translatable="false">favorite</string>
+
+    <string name="action_share">Share</string>
+    <string name="shared_movie_with_video">Here is a movie shared from Popular Movies.\n%1$s\nTrailer: %2$s</string>
+    <string name="shared_movie_no_video">Here is a movie shared from Popular Movies.\n%1$s</string>
+
+    <string name="runtime">%1$s min</string>
+
+    <string name="no_movie_detail">Oops, cannot find detail information for this movie.</string>
+
+
 
 </resources>

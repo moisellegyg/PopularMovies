@@ -3,9 +3,11 @@
     <array name="pref_sort_by_entries">
         <item>most popular</item>
         <item>highest-rated</item>
+        <item>favorite</item>
     </array>
     <array name="pref_sort_by_values" translatable="false">
         <item>popularity.desc</item>
         <item>vote_average.desc</item>
+        <item>favorite</item>
     </array>
 </resources>

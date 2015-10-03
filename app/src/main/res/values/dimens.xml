@@ -3,7 +3,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
+    <dimen name="activity_margin_half">8dp</dimen>
+
     <dimen name="poster_width">150dp</dimen>
     <dimen name="poster_height">225dp</dimen>
-    <dimen name="trailers_font_size">16dp</dimen>
+
+    <dimen name="title_font_size">18sp</dimen>
+    <dimen name="review_font_size">12sp</dimen>
 </resources>

@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+import com.yugegong.popularmovies.model.Movie;
 
 import java.util.List;
 
@@ -54,12 +56,17 @@ public class ImageAdapter extends ArrayAdapter<Movie> {
             throw new IllegalStateException(LOG_TAG + " requires the resource ID to be a ImageView", e);
         }
 
+//        Log.v(LOG_TAG, "width: " + RegularFragment.sScreenWidth);
+        int numColumns = ((GridView)parent).getNumColumns();
+        imageView.getLayoutParams().width = RegularFragment.sScreenWidth / numColumns;
+        imageView.getLayoutParams().height = (int) ((float)278/185 * imageView.getLayoutParams().width);
 
-        imageView.getLayoutParams().width = parent.getWidth()/2;
-        imageView.getLayoutParams().height = parent.getHeight()/2;
         String url = getItem(position).getPosterPath();
-        //if (url != null && !url.isEmpty())
-        Picasso.with(getContext()).load(url).into(imageView);
+        Picasso.with(getContext())
+                .load(url)
+                .placeholder(R.drawable.poster_placeholder)
+                .error(R.drawable.poster_placeholder_error)
+                .into(imageView);
 
         //Bitmap image = getItem(position);
         //imageView.setImageBitmap(image);

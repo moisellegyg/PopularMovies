@@ -233,41 +233,6 @@ public class MovieService {
 
             return null;
         }
-
-
-        /**
-         * Use this method if not using Picasso Library.
-         * @param uriString
-         * @return
-         */
-/*        private Bitmap downloadBitmap(String uriString) {
-            HttpURLConnection urlConnection = null;
-            Bitmap bitmap = null;
-            try {
-                URL url = new URL(uriString);
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("GET");
-                urlConnection.connect();
-
-                InputStream inputStream = urlConnection.getInputStream();
-                BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-                bitmap = BitmapFactory.decodeStream(bufferedInputStream);
-                bufferedInputStream.close();
-                inputStream.close();
-
-            } catch (IOException e) {
-                Log.e(LOG_TAG, "Error dowloading image", e);
-                return null;
-            } finally {
-                if (urlConnection != null) {
-                    urlConnection.disconnect();
-                }
-            }
-
-            return bitmap;
-
-
-        }*/
     }
 
     public void updateMovieDetails(Movie movie, MovieDetailWatcher watcher) {
