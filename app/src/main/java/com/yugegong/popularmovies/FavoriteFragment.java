@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,12 +70,8 @@ public class FavoriteFragment extends Fragment implements LoaderManager.LoaderCa
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.v(LOG_TAG, "onCreateView");
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-        //px = dp * (dpi / 160)
-        sScreenWidth = dm.widthPixels;
-        if (sScreenWidth*160/dm.densityDpi >= 600) sScreenWidth /= 2;
-//        Log.v(LOG_TAG, "dp2: " + sScreenWidth * 160 / dm.densityDpi + " " + sScreenWidth + " " + dm.densityDpi);
+        // get the screen width
+        sScreenWidth = Utility.getScreenWidth(getActivity());
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, rootView);

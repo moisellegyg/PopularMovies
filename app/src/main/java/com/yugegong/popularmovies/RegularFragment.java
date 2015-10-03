@@ -2,7 +2,6 @@ package com.yugegong.popularmovies;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,10 +48,8 @@ public class RegularFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-        sScreenWidth = dm.widthPixels;
-        if (sScreenWidth*160/dm.densityDpi >= 600) sScreenWidth /= 2;
+        // get the screen width
+        sScreenWidth = Utility.getScreenWidth(getActivity());
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, rootView);

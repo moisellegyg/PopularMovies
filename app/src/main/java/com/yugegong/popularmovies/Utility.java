@@ -1,5 +1,6 @@
 package com.yugegong.popularmovies;
 
+import android.app.Activity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.yugegong.popularmovies.data.MovieContract.MovieEntry;
@@ -33,6 +35,20 @@ public class Utility {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return  prefs.getString(context.getString(R.string.pref_sort_by_key),
                 context.getString(R.string.pref_sort_by_default));
+    }
+
+    public static int getScreenWidth(Activity activity){
+        int screenWidth = 0;
+        // get the screen width in pixels
+        DisplayMetrics dm = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        screenWidth = dm.widthPixels;
+        // convert the screen width from pi to dp. If screenwidth >= 600dp, means we are going to
+        // use two pane mode for tablet. Divide the screenwidth by 2 to calculate the column width
+        // of the grid view, which is also the imageview width.
+        if (screenWidth*160/dm.densityDpi >= 600) screenWidth /= 2;
+        //        Log.v(LOG_TAG, "dp2: " + screenWidth * 160 / dm.densityDpi + " " + screenWidth + " " + dm.densityDpi);
+        return screenWidth;
     }
 
     public static void saveFavoriteMovie(Movie movie, Context context) {

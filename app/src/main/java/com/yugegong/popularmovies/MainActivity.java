@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements RegularFragment.C
             String sort_by = Utility.getPreferredSortBy(this);
             Log.v("MainActivity", sort_by);
 
+            // Use RegularFragment when sort by favorite movies.
             if (sort_by.equals(getString(R.string.sort_by_favorite))) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, new FavoriteFragment())
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements RegularFragment.C
             }
         }
 
+        // check if using the two pane mode for tablet
         if(findViewById(R.id.movie_detail_container) != null) {
             mTwoPane = true;
             if(savedInstanceState == null) {
